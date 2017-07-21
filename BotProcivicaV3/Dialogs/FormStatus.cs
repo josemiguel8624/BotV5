@@ -14,7 +14,8 @@ namespace BotProcivicaV3.Dialogs
             string onemoment = ChatResponse.onemoment;
             return new FormBuilder<FormStatus>()
                 .Field(nameof(Checkid), prompt: id)
-                .Message(onemoment)
+                /***Desactiva el mensaje de espera en consulta de folio***/
+                //.Message(onemoment)
                 .AddRemainingFields()
                 .Build();
         }
