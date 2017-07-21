@@ -2,6 +2,7 @@
 using System;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using BotProcivicaV3.ConnectionDB;
 using Microsoft.Bot.Connector;
 
 namespace BotProcivicaV3.Dialogs
@@ -25,6 +26,19 @@ namespace BotProcivicaV3.Dialogs
             string name = ChatResponse.Suggestion;
             string contact = ChatResponse.Step2Contact;
             string suggestion = ChatResponse.Step4Suggestion;
+
+            //IMessageActivity replyToConversation = (IMessageActivity) BuildForm();  
+            
+            //ConnectionDB.Chatbot_PGBEntities1 DBot = new ConnectionDB.Chatbot_PGBEntities1();
+            //ConnectionDB.UserLogin NewUserLogBot = new ConnectionDB.UserLogin();
+            //NewUserLogBot.Channel = replyToConversation.ChannelId;
+            //NewUserLogBot.UserID = replyToConversation.From.Id;
+            //NewUserLogBot.UserName = replyToConversation.From.Name;
+            //NewUserLogBot.Created = DateTime.UtcNow;
+            //NewUserLogBot.Message = replyToConversation.Text;
+            //DBot.UserLogins.Add(NewUserLogBot);
+            //DBot.SaveChanges();
+            //DBot.Dispose();
 
             return new FormBuilder<SuggestionForm>()
                 .Field(nameof(Name), prompt: name)

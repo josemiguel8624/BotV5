@@ -137,6 +137,26 @@
     <Content Include="App_Data\ChatbotDB_log.ldf">
       <DependentUpon>ChatbotDB.mdf</DependentUpon>
     </Content>
+    <Content Include="ConnectionDB\BotDataModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BotDataModel.edmx</DependentUpon>
+      <LastGenOutput>BotDataModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ConnectionDB\BotDataModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BotDataModel.edmx</DependentUpon>
+      <LastGenOutput>BotDataModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="ConnectionDB\ModelCasos.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ModelCasos.Context.cs</LastGenOutput>
+      <DependentUpon>ModelCasos.edmx</DependentUpon>
+    </Content>
+    <Content Include="ConnectionDB\ModelCasos.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelCasos.edmx</DependentUpon>
+      <LastGenOutput>ModelCasos.cs</LastGenOutput>
+    </Content>
     <Content Include="default.htm" />
     <Content Include="Global.asax" />
     <Content Include="Web.config">
@@ -147,6 +167,42 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="ChatDialog.cs" />
     <Compile Include="ChatResponse.cs" />
+    <Compile Include="ConnectionDB\BotDataModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BotDataModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConnectionDB\BotDataModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BotDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConnectionDB\BotDataModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BotDataModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="ConnectionDB\Casos.cs">
+      <DependentUpon>ModelCasos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConnectionDB\ModelCasos.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelCasos.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConnectionDB\ModelCasos.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelCasos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConnectionDB\ModelCasos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelCasos.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="ConnectionDB\UserLogin.cs">
+      <DependentUpon>BotDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\MessagesController.cs" />
     <Compile Include="Dialogs\ComplaintForm.cs" />
     <Compile Include="Dialogs\DenunciationForm.cs" />
@@ -166,7 +222,21 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-    <None Include="Properties\PublishProfiles\ChatBotProcivica - Web Deploy.pubxml" />
+    <EntityDeploy Include="ConnectionDB\ModelCasos.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelCasos.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="ConnectionDB\ModelCasos.edmx.diagram">
+      <DependentUpon>ModelCasos.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="ConnectionDB\BotDataModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>BotDataModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="ConnectionDB\BotDataModel.edmx.diagram">
+      <DependentUpon>BotDataModel.edmx</DependentUpon>
+    </Content>
+    <None Include="Properties\PublishProfiles\BotV5 - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

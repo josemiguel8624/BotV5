@@ -92,9 +92,6 @@ C:\Users\ESCUELA\Documents\GitHub\BotProcivicaV3\BotProcivicaV3\obj\Debug\Bot Ap
 C:\Users\ESCUELA\Documents\GitHub\BotProcivicaV3\BotProcivicaV3\obj\Debug\Bot Application1.pdb
 C:\Users\ESCUELA\Documents\GitHub\BotProcivicav3\BotProcivicaV3\bin\AutoMapper.dll
 C:\Users\ESCUELA\Documents\GitHub\BotProcivicav3\BotProcivicaV3\bin\AutoMapper.xml
-C:\Users\José Miguel\Desktop\BotProcivicav3\BotProcivicaV3\obj\Debug\BotProcivicaV3.csprojResolveAssemblyReference.cache
-C:\Users\José Miguel\Desktop\BotProcivicav3\BotProcivicaV3\obj\Debug\Bot Application1.dll
-C:\Users\José Miguel\Desktop\BotProcivicav3\BotProcivicaV3\obj\Debug\Bot Application1.pdb
 C:\Users\José Miguel\Desktop\BotProcivicav3\BotProcivicaV3\bin\Bot Application1.dll.config
 C:\Users\José Miguel\Desktop\BotProcivicav3\BotProcivicaV3\bin\Bot Application1.dll
 C:\Users\José Miguel\Desktop\BotProcivicav3\BotProcivicaV3\bin\Bot Application1.pdb
@@ -140,6 +137,9 @@ C:\Users\José Miguel\Desktop\BotProcivicav3\BotProcivicaV3\bin\fr\Microsoft.Bot
 C:\Users\José Miguel\Desktop\BotProcivicav3\BotProcivicaV3\bin\ja\Microsoft.Bot.Builder.resources.dll
 C:\Users\José Miguel\Desktop\BotProcivicav3\BotProcivicaV3\bin\ru\Microsoft.Bot.Builder.resources.dll
 C:\Users\José Miguel\Desktop\BotProcivicav3\BotProcivicaV3\bin\zh-hans\Microsoft.Bot.Builder.resources.dll
+C:\Users\José Miguel\Desktop\BotProcivicav3\BotProcivicaV3\obj\Debug\BotProcivicaV3.csprojResolveAssemblyReference.cache
+C:\Users\José Miguel\Desktop\BotProcivicav3\BotProcivicaV3\obj\Debug\Bot Application1.dll
+C:\Users\José Miguel\Desktop\BotProcivicav3\BotProcivicaV3\obj\Debug\Bot Application1.pdb
 C:\Users\José Miguel\Documents\GitHub\BotV5\BotProcivicaV3\bin\Bot Application1.dll.config
 C:\Users\José Miguel\Documents\GitHub\BotV5\BotProcivicaV3\bin\Bot Application1.dll
 C:\Users\José Miguel\Documents\GitHub\BotV5\BotProcivicaV3\bin\Bot Application1.pdb

@@ -9,9 +9,14 @@ namespace BotProcivicaV3
 {
     public class ChatResponse
     {
-        
+
         //private static string headerValue;
         //Aquí asigno todas las respuestas a: Default, por si no entiende lo que quizó decir el usuario
+
+        public static string idiom
+        {
+            get { return Settings.GetLanguageTranslation()/*TranslationHandler.isoName.ToString()*/; }
+        }
 
         public static string Default
         {
@@ -37,10 +42,7 @@ namespace BotProcivicaV3
         public static readonly string WelcomeMessage = Settings.GetWelcomeMessage();
 
         //Aquí asigno todas las respuestas a: Intenciones
-        public static string idiom
-        {
-            get { return Settings.GetLanguageTranslation()/*TranslationHandler.isoName.ToString()*/; }
-        }
+        
 
         public static string SuggestionGreet
         {
