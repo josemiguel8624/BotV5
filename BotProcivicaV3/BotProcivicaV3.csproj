@@ -237,6 +237,7 @@
       <DependentUpon>BotDataModel.edmx</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\BotV5 - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\PropulsarBot - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

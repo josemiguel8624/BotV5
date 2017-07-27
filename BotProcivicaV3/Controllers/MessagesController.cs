@@ -30,53 +30,11 @@ namespace BotProcivicaV3
         {
 
             IdentifyLanguage();
-            #region Set CurrentBaseURL and ChannelAccount
-            // Get the base URL that this service is running at
-            // This is used to show images
-            string CurrentBaseURL =
-                    this.Url.Request.RequestUri.AbsoluteUri.Replace(@"api/messages", "");
-
-            // Create an instance of BotData to store data
-            BotData objBotData = new BotData();
-
-            // Instantiate a StateClient to save BotData            
-            StateClient stateClient = activity.GetStateClient();
-
-            // Use stateClient to get current userData
-            BotData userData = await stateClient.BotState.GetUserDataAsync(
-                activity.ChannelId, activity.From.Id);
-
-            // Update userData by setting CurrentBaseURL and Recipient
-            userData.SetProperty<string>("CurrentBaseURL", CurrentBaseURL);
-
-            // Save changes to userData
-            /*
-             * await stateClient.BotState.SetUserDataAsync(
-                activity.ChannelId, activity.From.Id, userData);
-                */
-
-            #endregion
+   
             
             if (activity.Type == ActivityTypes.Message)
             {
-                IMessageActivity mensaje = activity.AsMessageActivity();
-
-                Activity msj = (Activity)mensaje;
-                msj.Recipient = msj.Recipient;
-                msj.Type = "Message";
-
-
-                ConnectionDB.Chatbot_PGBEntities1 DBTop = new ConnectionDB.Chatbot_PGBEntities1();
-                ConnectionDB.UserLogin NewUserLogTop = new ConnectionDB.UserLogin();
-                NewUserLogTop.Channel = msj.ChannelId;
-                NewUserLogTop.UserID = msj.From.Id;
-                NewUserLogTop.UserName = msj.From.Name;
-                NewUserLogTop.Created = DateTime.UtcNow;
-                NewUserLogTop.Message = msj.Text;
-                DBTop.UserLogins.Add(NewUserLogTop);
-                DBTop.SaveChanges();
-                //DBTop.Dispose();
-
+          
                 if (activity.Text.Contains("CANCELAR")|| activity.Text.Contains("CANCEL"))
                 {
                     IdentifyLanguage();
@@ -89,24 +47,9 @@ namespace BotProcivicaV3
                     await connector.Conversations.ReplyToActivityAsync(reply2);
                     //Reinicia la conversación
                     activity.GetStateClient().BotState.DeleteStateForUser(activity.ChannelId, activity.From.Id);
-
-                   
+                    
                 }
-                //else
-                //{
-                //    if (activity.Text.Contains("Adiós") || activity.Text.Contains("Adios"))
-                //    {
-                //        ConnectorClient connector = new ConnectorClient(new Uri(activity.ServiceUrl));
-                //        string response1 = ChatResponse.Goodbye;
-                //        //string response2 = ChatResponse.Step5Else;
-                //        Activity reply = activity.CreateReply(response1);
-                //        //Activity reply2 = activity.CreateReply(response2);
-                //        await connector.Conversations.ReplyToActivityAsync(reply);
-                //        //await connector.Conversations.ReplyToActivityAsync(reply2);
-                //        //Reinicia la conversación
-                //        activity.GetStateClient().BotState.DeleteStateForUser(activity.ChannelId, activity.From.Id);
-                //    }
-                //}
+
                 else
                 {
                     activity.Text = TranslatorHandler.DetectAndTranslate(activity);
@@ -137,10 +80,6 @@ namespace BotProcivicaV3
 
         private async Task<Activity> HandleSystemMessage(Activity message)
         {
-
-
-            
-
             if (message.Type == ActivityTypes.DeleteUserData)
             {
                 // Implement user deletion here
@@ -148,38 +87,38 @@ namespace BotProcivicaV3
             }
             else if (message.Type == ActivityTypes.ConversationUpdate)
             {
-                IConversationUpdateActivity conversationupdate = message;
-                using (var scope = DialogModule.BeginLifetimeScope(Conversation.Container, message))
-                {
-                    var client = scope.Resolve<IConnectorClient>();
-                    if (conversationupdate.MembersAdded.Any())
-                    {
+                //IConversationUpdateActivity conversationupdate = message;
+                //using (var scope = DialogModule.BeginLifetimeScope(Conversation.Container, message))
+                //{
+                //    var client = scope.Resolve<IConnectorClient>();
+                //    if (conversationupdate.MembersAdded.Any())
+                //    {
                         
-                        var reply = message.CreateReply();
+                //        var reply = message.CreateReply();
                         
 
-                        foreach (var newMember in conversationupdate.MembersAdded)
-                        {
-                            if (newMember.Id != message.Recipient.Id)
-                            {
-                                reply.Text = "¡Hola!";
+                //        foreach (var newMember in conversationupdate.MembersAdded)
+                //        {
+                //            if (newMember.Id != message.Recipient.Id)
+                //            {
+                //                reply.Text = "¡Hola!";
 
-                                ConnectionDB.Chatbot_PGBEntities1 DBTop = new ConnectionDB.Chatbot_PGBEntities1();
-                                ConnectionDB.UserLogin NewUserLogTop = new ConnectionDB.UserLogin();
-                                NewUserLogTop.Channel = message.ChannelId;
-                                NewUserLogTop.UserID = message.From.Id;
-                                NewUserLogTop.UserName = message.From.Name;
-                                NewUserLogTop.Created = DateTime.UtcNow;
-                                NewUserLogTop.Message = "Inicia nueva conversación --> "+reply.Text;
-                                DBTop.UserLogins.Add(NewUserLogTop);
-                                DBTop.SaveChanges();
-                                DBTop.Dispose();
+                //                ConnectionDB.Chatbot_PGBEntities1 DBTop = new ConnectionDB.Chatbot_PGBEntities1();
+                //                ConnectionDB.UserLogin NewUserLogTop = new ConnectionDB.UserLogin();
+                //                NewUserLogTop.Channel = message.ChannelId;
+                //                NewUserLogTop.UserID = message.From.Id;
+                //                NewUserLogTop.UserName = message.From.Name;
+                //                NewUserLogTop.Created = DateTime.UtcNow;
+                //                NewUserLogTop.Message = "Inicia nueva conversación --> "+reply.Text;
+                //                DBTop.UserLogins.Add(NewUserLogTop);
+                //                DBTop.SaveChanges();
+                //                DBTop.Dispose();
 
-                                await client.Conversations.ReplyToActivityAsync(reply);
-                            }
-                        }
-                    }
-                }
+                //                await client.Conversations.ReplyToActivityAsync(reply);
+                //            }
+                //        }
+                //    }
+                //}
 
 
 
